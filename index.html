@@ -52,8 +52,10 @@
         }
 
         function makeCall() {
+            var phone = document.getElementById("phone").textContent;
+            logMessage("Phone: " + phone);
             // Specify your number here - Application Rule Pattern describes which VoxEngine scenario should be launched
-            call = voxImplant.call("+79520549127");
+            call = voxImplant.call(phone);
             // Add event listeners for call events
             call.addEventListener(VoxImplant.CallEvents.Connected, handleCallConnected);
             call.addEventListener(VoxImplant.CallEvents.Failed, handleCallFailed);
@@ -120,7 +122,9 @@
     <!--	<a href="javascript:testCall()">Make Call</a><br/>  -->
     <button id="call" onclick="javascript:testCall()">Call partner support</button>
     <button id="hangup_btn" disabled="true">Hang up</button>
-    <textarea id="log" style="width=400px"></textarea>
+    <textarea id="log" style=" width:400px"></textarea>
+    <textarea id="phone">+79520549127</textarea>
+    
 
 
     <!-- Insert before the closing body tag -->
